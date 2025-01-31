@@ -1,6 +1,5 @@
 package com.musicalband.controllers;
 
-
 import com.musicalband.entities.Band;
 import com.musicalband.entities.MusicalBand;
 import com.musicalband.entities.Musician;
@@ -10,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -17,7 +17,17 @@ import java.util.List;
 public class MusicalBandController {
     
     private final MusicalBandService musicalBandService;
-    
+
+    @PostMapping(value = "/person")
+    public Person createPerson(@RequestBody Person person) {
+        return musicalBandService.createPerson(person);
+    }
+
+    @PostMapping(value = "/musician")
+    public Musician createMusician(@RequestBody Musician musician) {
+        return musicalBandService.createMusician(musician);
+    }
+
     @PostMapping(value = "/band")
     public Band createBand(@RequestBody Band band) {
         return musicalBandService.createBand(band);
@@ -28,14 +38,9 @@ public class MusicalBandController {
         return musicalBandService.createMusicalBand(musicalBand);
     }
 
-    @PostMapping(value = "/musician")
-    public Musician createMusician(@RequestBody Musician musician) {
-        return musicalBandService.createMusician(musician);
-    }
-
-    @PostMapping(value = "/person")
-    public Person createPerson(@RequestBody Person person) {
-        return musicalBandService.createPerson(person);
+    @GetMapping(value = "/persons")
+    public List<Person> getPersons() {
+        return musicalBandService.getPersons();
     }
 
     @GetMapping(value = "/musicians")
@@ -43,10 +48,20 @@ public class MusicalBandController {
         return musicalBandService.getMusicians();
     }
 
-
-    @GetMapping(value = "/secured/musicians")
-    public List<Musician> getSecuredMusicians() {
-        return musicalBandService.getMusicians();
+    @GetMapping(value = "/bands")
+    public List<Band> getBands() {
+        return musicalBandService.getBands();
     }
+
+    @GetMapping(value = "/musical-bands")
+    public List<MusicalBand> getMusicalBands() {
+        return musicalBandService.getMusicalBands();
+    }
+
+    @GetMapping(value = "/person/{id}")
+    public Person findByPersonId(@PathVariable(value = "id") Long id) {
+        return musicalBandService.getPersonById(id).get();
+    }
+
 
 }

@@ -1,11 +1,12 @@
 com\musicalband\MusicalBandApplication.class
-com\musicalband\entities\Person.class
+com\musicalband\config\MusicianConfig.class
 com\musicalband\services\MusicalBandService.class
-com\musicalband\repositories\PersonRepository.class
 com\musicalband\entities\Band.class
 com\musicalband\controllers\MusicalBandController.class
 com\musicalband\repositories\BandRepository.class
 com\musicalband\repositories\MusicalBandRepository.class
 com\musicalband\entities\Musician.class
-com\musicalband\repositories\MusicianRepository.class
 com\musicalband\entities\MusicalBand.class
+com\musicalband\entities\Person.class
+com\musicalband\repositories\PersonRepository.class
+com\musicalband\repositories\MusicianRepository.class
