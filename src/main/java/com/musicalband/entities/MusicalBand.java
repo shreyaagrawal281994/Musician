@@ -25,9 +25,6 @@ public class MusicalBand {
     @OneToMany(mappedBy = "musicalBand")
     private List<Band> bands;
 
-    @OneToMany(mappedBy = "musicalBand")
-    private List<Musician> musicians;
-
     @CreatedDate
     private Date createdAt;
 

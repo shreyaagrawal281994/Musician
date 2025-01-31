@@ -25,10 +25,6 @@ public class Musician {
     private Person person;
 
     @ManyToOne
-    @JoinColumn(name = "musical_band_id")
-    private MusicalBand musicalBand;
-
-    @ManyToOne
     @JoinColumn(name = "band_id")
     private Band band;
 
